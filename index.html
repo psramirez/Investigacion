@@ -1,16 +1,67 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <head>
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
+        <!--Bootstrap-->
+        <link rel="stylesheet" type="text/css" href="./lib/bootstrap/css/bootstrap.min.css">
+        <!--Personalizacion bootstrap-->
+        <link rel="stylesheet" type="text/css" href="./css/rewriterBootstrap.css">
+        
+        <!--jQuery-->
+        <script src="./lib/jquery/jquery-2.0.3.min.js"></script>
+        <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
     </head>
     <body>
-        <div>TODO write content</div>
+        
+        
+        <div class="col-sm-8">
+            hola
+        </div>
+        
+        <!--FORMULARIO-->        
+        <div class="col-sm-3 mycontent"> 
+            
+            <!--PESTAÑAS-->
+            <ul class="nav nav-tabs" id="myTab">
+                <li class="active"><a href="#login" data-toggle="tab">Acceder</a></li>
+                <li><a href="#register" data-toggle="tab">Registrarme</a></li>        
+            </ul>
+            
+            <!--LOGIN--> 
+            <div class="tab-content">
+                <div class="tab-pane active" id="login">
+                    <div class="input-group">
+                        <span class="input-group-addon "><span class="glyphicon glyphicon-envelope"></span></span>
+                        <input type="text" class="form-control" placeholder="Email">
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-addon "><span class="glyphicon glyphicon-lock"></span></span>
+                      <input type="text" class="form-control" placeholder="Contraseña">
+                    </div>                    
+                    <button type="button" class="btn btn-primary btn-block">Acceder</button>                     
+                    <br><a href="#register">Olvid&eacute; mi contraseña</a>
+                </div>
+                <!--REGISTRO-->
+                <div class="tab-pane" id="register">
+                    <div class="input-group">
+                        <span class="input-group-addon "><span class="glyphicon glyphicon-user"></span></span>
+                        <input type="text" class="form-control" placeholder="Nombre Usuario">
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon "><span class="glyphicon glyphicon-envelope"></span></span>
+                        <input type="text" class="form-control" placeholder="Email">
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-addon "><span class="glyphicon glyphicon-lock"></span></span>
+                      <input type="text" class="form-control" placeholder="Contraseña">
+                    </div>  
+                    <button type="button" class="btn btn-primary btn-block">Registrarme</button>    
+                </div>
+            </div>
+              
+                
+         </div>
     </body>
 </html>
