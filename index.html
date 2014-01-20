@@ -11,7 +11,7 @@
         
         <!--jQuery-->
         <script src="./lib/jquery/jquery-2.0.3.min.js"></script>
-        <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
+        <script src="./lib/bootstrap/js/bootstrap.min.js"></script>        
     </head>
     <body>
         
@@ -26,7 +26,7 @@
         </button>
         
         <!-- CONTENIDO MODAL -->
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal fade in " id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: block">
             <div class="modal-dialog">
                 <div class="modal-content">
                 <!--Boton cerrar-->
@@ -34,7 +34,8 @@
                   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>        
                 </div>
                 <div class="modal-body"> 
-                  <!--FORMULARIO-->      
+                  <!--FORMULARIO--> 
+                  <div id="error-form" class="alert alert-danger hidden"></div>
                   <!--PESTAÑAS-->
                   <ul class="nav nav-tabs" id="myTab">
                       <li class="active"><a href="#login-content" data-toggle="tab">Acceder</a></li>
@@ -42,36 +43,34 @@
                   </ul>
 
                   <!--LOGIN--> 
-                  <div class="tab-content">
-                      <div class="tab-pane active" id="login-content">
-                           <input type="text" name="user" id="user" placeholder="Nombre de Usuario" class="form-control" required/> <br>
+                  <div class="tab-content">                      
+                      <div class="tab-pane active" id="login-content">                        
                           <div class="input-group">
                               <span class="input-group-addon "><span class="glyphicon glyphicon-envelope"></span></span>
-                              <input type="email" class="form-control" placeholder="Email" autofocus required>
+                              <input type="email" name="user-email" class="form-control" placeholder="Email">
                           </div>
                           <div class="input-group">
                             <span class="input-group-addon "><span class="glyphicon glyphicon-lock"></span></span>
-                            <input type="password" class="form-control" placeholder="Contraseña">
+                            <input type="password" name="user-password" class="form-control" placeholder="Contraseña">
                           </div>                    
-                          <button type="submit" class="btn btn-primary btn-block">Acceder</button>                     
-                          <br><a href="#recovery-pass">Olvid&eacute; mi contraseña</a>
+                          <button type="button" id="login-submit" class="btn btn-primary btn-block">Acceder</button>                     
+                          <br><a href="#recovery-pass">Olvid&eacute; mi contraseña</a>                        
                       </div>
                       <!--REGISTRO-->
-                      <div class="tab-pane" id="register-content">
-                          <div class="input-group">
-                              <span class="input-group-addon "><span class="glyphicon glyphicon-user"></span></span>
-                              <input type="text" class="form-control" placeholder="Nombre Usuario">
-                          </div>
-                          <div class="input-group">
-                              <span class="input-group-addon "><span class="glyphicon glyphicon-envelope"></span></span>
-                              <input type="text" class="form-control" placeholder="Email">
-                          </div>
-                          <div class="input-group">
-                            <span class="input-group-addon "><span class="glyphicon glyphicon-lock"></span></span>
-                            <input type="text" class="form-control" placeholder="Contraseña">
-                          </div>
-                          
-                          <button type="button" class="btn btn-primary btn-block">Registrarme</button>    
+                      <div class="tab-pane" id="register-content">                          
+                            <div class="input-group">
+                                <span class="input-group-addon "><span class="glyphicon glyphicon-user"></span></span>
+                                <input type="text" name="user-name"  class="form-control" placeholder="Nombre Usuario">
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-addon "><span class="glyphicon glyphicon-envelope"></span></span>
+                                <input type="email" name="user-email" class="form-control" placeholder="Email">
+                            </div>
+                            <div class="input-group">
+                              <span class="input-group-addon "><span class="glyphicon glyphicon-lock"></span></span>
+                              <input type="password" name="user-password" class="form-control" placeholder="Contraseña">
+                            </div>                          
+                          <button type="button" id="register-submit" class="btn btn-primary btn-block">Registrarme</button>    
                       </div>
                   </div>
                 </div>
@@ -79,24 +78,6 @@
           </div>
         </div>
         <!------------------------------------------------------------------>
-        <div class="col-xs-10 col-sm-5 col-lg-4 col-lg-offset-8/*8*/ col-sm-offset-8 col-xs-offset-1 blackmiddle radius" id="form">
-                <h4 class="text-primary">Registro<small> Free</small></h4>
-                
-                <form name="formRegister" action="workspace.php" method="get" role="form">
-                    <div class="sr-only" id="desRegister"></div>
-                        <input type="email" name="email" id="email" placeholder="Email" class="form-control" autofocus required pattern="^([_a-z0-9-]+)*@([a-z0-9-]+)*.([_a-z0-9-]{3,4})" title="miEmail@gmail.com" /><br>
-                    
-                    <input type="text" name="user" id="user" placeholder="Nombre de Usuario" class="form-control" required/> <br>
-                    <input type="password" name="password" id="password" required placeholder="Contrase&ntilde;a" class="form-control" pattern="^[A-Za-z0-9]{5,20}" title="5-20 numeros o letras, sin espacios"/><br>
-                    <div class="sr-only" id="desRegister2"></div>
-                        <input type="password" name="rePassword " id="rePassword" required placeholder="Repetir Contrase&ntilde;a" class="form-control" pattern="^[A-Za-z0-9]{5,20}" title="5-20 numeros o letras, sin espacios"/><br>
-                    
-                    <input type="submit" name="submit" class="btn btn-default" id="login" value="Login">
-                    <input type="button" name="submit" class="btn btn-link" id="register" value="Registrarse"><br>
-
-                </form>
-                <br>
-            </div>
-        </div>
+        <script src="./js/validateForm.js"></script>
     </body>
 </html>
